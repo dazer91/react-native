@@ -442,6 +442,13 @@ public class ReactWebViewManager extends SimpleViewManager<WebView> {
   public void setInjectedJavaScript(WebView view, @Nullable String injectedJavaScript) {
     ((ReactWebView) view).setInjectedJavaScript(injectedJavaScript);
   }
+  
+  @ReactProp(name = "chromeClient")
+  public void setChromeClient(WebView view, boolean enabled) {
+    if (enabled) {
+      view.setWebChromeClient(new WebChromeClient());
+    }
+  }
 
   @ReactProp(name = "messagingEnabled")
   public void setMessagingEnabled(WebView view, boolean enabled) {
